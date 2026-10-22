@@ -4,6 +4,8 @@
 // are the clubs' own uploads (downloaded with approval). Self-reported: confirm each club's
 // affiliation status before marking it `verified`.
 
+import { assetPath } from '@/lib/urls'
+
 export const clubsSource = {
   label: 'GFP federation profile on Boltmore',
   href: 'https://boltmore.com/public/federations/1',
@@ -13,8 +15,8 @@ export const clubsSource = {
 const BM = 'https://boltmore.com/public/academies/'
 
 const club = (c) => ({
-  logo: c.id && c.hasLogo ? `/media/clubs/${c.id}-logo.webp` : null,
-  cover: c.id && c.hasCover ? `/media/clubs/${c.id}-cover.webp` : null,
+  logo: c.id && c.hasLogo ? assetPath(`/media/clubs/${c.id}-logo.webp`) : null,
+  cover: c.id && c.hasCover ? assetPath(`/media/clubs/${c.id}-cover.webp`) : null,
   verified: false,
   ...c,
 })

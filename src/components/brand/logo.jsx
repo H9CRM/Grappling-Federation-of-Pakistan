@@ -1,4 +1,5 @@
 import { cn } from '@/lib/utils'
+import { assetPath } from '@/lib/urls'
 
 // Official GFP crest (supplied Sept 2026), pre-cropped to a circular badge in public/brand/.
 // Sized with explicit width/height so it never causes layout shift.
@@ -7,8 +8,8 @@ export function Logo({ className, compact = false, size = 40, tight = false }) {
   return (
     <span className={cn('inline-flex items-center gap-3', className)}>
       <img
-        src="/brand/gfp-logo-96.webp"
-        srcSet="/brand/gfp-logo-96.webp 96w, /brand/gfp-logo-192.webp 192w"
+        src={assetPath('/brand/gfp-logo-96.webp')}
+        srcSet={`${assetPath('/brand/gfp-logo-96.webp')} 96w, ${assetPath('/brand/gfp-logo-192.webp')} 192w`}
         sizes={`${size}px`}
         width={size}
         height={size}

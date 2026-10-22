@@ -12,6 +12,7 @@
     "generate:llms": "node scripts/generate-llms.mjs",
     "generate:seo": "npm run generate:sitemap && npm run generate:image-sitemap && npm run generate:llms",
     "lint": "oxlint",
+    "verify:build": "node scripts/verify-build.mjs",
     "preview": "vite preview"
   },
   "dependencies": {

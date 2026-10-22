@@ -4,7 +4,7 @@
 // lists different office-bearers and an Islamabad address — ask UWW to update its record so
 // the two match (strategy §1.2).
 
-export const SITE_URL = 'https://www.gfp.org.pk' // TODO: replace once the domain is registered (strategy Phase 0)
+export { SITE_URL } from '@/lib/urls'
 
 export const org = {
   name: 'Grappling Federation of Pakistan',

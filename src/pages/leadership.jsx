@@ -9,6 +9,7 @@ import { Notice } from '@/components/blocks'
 import { Card } from '@/components/brand/card'
 import { SocialIcons } from '@/components/brand/social'
 import { CountUp, Reveal, Stagger } from '@/components/motion/primitives'
+import { assetPath } from '@/lib/urls'
 
 const initials = (n) => n.split(' ').filter((p) => /^[A-Z]/.test(p)).slice(0, 2).map((p) => p[0]).join('')
 const gfpEventsHeld = events.filter((e) => e.organizer.startsWith(org.name) && !isUpcoming(e)).length
@@ -114,7 +115,7 @@ export default function Leadership() {
                   viewport={inView}
                   transition={{ duration: 1, ease: ease.expo, delay: 0.2 + i * 0.12 }}
                 >
-                  <img src={o.photo} alt={`${o.name}, ${o.role} of the Grappling Federation of Pakistan`} width="320" height="320" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover/lead:scale-105" />
+                  <img src={assetPath(o.photo)} alt={`${o.name}, ${o.role} of the Grappling Federation of Pakistan`} width="320" height="320" loading="lazy" decoding="async" className="h-full w-full object-cover transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover/lead:scale-105" />
                 </motion.div>
                 <figcaption>
                   <p className="t-eyebrow text-gold">{o.role}</p>
@@ -143,7 +144,7 @@ export default function Leadership() {
                   <li key={o.name}>
                     <Card className="flex-row items-center gap-4 p-4">
                       {o.photo ? (
-                        <img src={o.photo} alt={o.name} width="56" height="56" loading="lazy" decoding="async" className="size-14 shrink-0 rounded-full object-cover ring-2 ring-tint transition-transform duration-500 group-hover/card:scale-105" />
+                        <img src={assetPath(o.photo)} alt={o.name} width="56" height="56" loading="lazy" decoding="async" className="size-14 shrink-0 rounded-full object-cover ring-2 ring-tint transition-transform duration-500 group-hover/card:scale-105" />
                       ) : (
                         <span aria-hidden="true" className="font-display flex size-14 shrink-0 items-center justify-center rounded-full bg-tint text-lg font-bold text-fed">{initials(o.name)}</span>
                       )}
@@ -176,7 +177,7 @@ export default function Leadership() {
           <Card className="p-7">
             <h2 className="t-card text-ink">Governance documents</h2>
             <p className="mt-2 text-steel">Constitution and policies are published as they are approved.</p>
-            <a href="/policies/code-of-conduct" className="mt-5 inline-flex items-center gap-1 font-semibold text-fed">
+            <a href={assetPath('/policies/code-of-conduct')} className="mt-5 inline-flex items-center gap-1 font-semibold text-fed">
               <span className="link-sweep pb-0.5">Read our policies</span>
               <ArrowUpRight aria-hidden="true" className="size-4" />
             </a>

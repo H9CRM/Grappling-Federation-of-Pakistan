@@ -5,6 +5,7 @@ import { cn } from '@/lib/utils'
 import { ease, spring } from '@/lib/motion'
 import { Stagger } from '@/components/motion/primitives'
 import { Button } from '@/components/brand/button'
+import { assetPath } from '@/lib/urls'
 import { FacebookIcon } from '@/components/brand/social'
 
 // Players are created only after the visitor presses play. Every preview uses the
@@ -73,7 +74,7 @@ function VideoCard({ video }) {
                   // No public poster frame for Facebook reels: branded placeholder with the mat motif
                   <span aria-hidden="true" className="surface-arena absolute inset-0">
                     <span className="mat-grid absolute inset-0 opacity-40 invert" />
-                    <img src="/brand/gfp-logo-96.webp" alt="" width="40" height="40" loading="lazy" className="absolute top-4 left-4 size-10 rounded-full" />
+                    <img src={assetPath('/brand/gfp-logo-96.webp')} alt="" width="40" height="40" loading="lazy" className="absolute top-4 left-4 size-10 rounded-full" />
                     <span className="absolute top-5 right-4 flex items-center gap-1.5 text-xs font-semibold text-white/70">
                       <FacebookIcon className="size-3.5" /> Reel
                     </span>

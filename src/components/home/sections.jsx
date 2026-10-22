@@ -27,6 +27,7 @@ import { FaqList } from '@/components/faq-list'
 import { InstagramIcon } from '@/components/brand/social'
 import { images as mediaImages, imageById, stockImages } from '@/content/media'
 import { PhotoCredit } from '@/components/media/photo-credit'
+import { assetPath } from '@/lib/urls'
 import { clubs } from '@/content/clubs'
 
 const todayInPakistan = new Date().toLocaleDateString('en-CA', { timeZone: 'Asia/Karachi' })
@@ -373,8 +374,8 @@ export function WomenYouth() {
             >
               {/* Women's Gi match, 3rd Grapple Mania 2025 — graded into the brand green */}
               <img
-                src="/media/grapple-mania-3-2025-640.webp"
-                srcSet="/media/grapple-mania-3-2025-640.webp 640w, /media/grapple-mania-3-2025.webp 1024w"
+                src={assetPath('/media/grapple-mania-3-2025-640.webp')}
+                srcSet={`${assetPath('/media/grapple-mania-3-2025-640.webp')} 640w, ${assetPath('/media/grapple-mania-3-2025.webp')} 1024w`}
                 sizes="(min-width: 1024px) 600px, 100vw"
                 alt=""
                 loading="lazy"

@@ -1,6 +1,7 @@
-import { org, SITE_URL } from '@/content/site'
+import { org } from '@/content/site'
+import { absoluteUrl } from '@/lib/urls'
 
-export const absoluteUrl = (path = '/') => (/^https?:/.test(path) ? path : `${SITE_URL}${path === '/' ? '/' : path}`)
+export { absoluteUrl } from '@/lib/urls'
 
 // React 19 hoists <title>, <meta> and <link> into <head>; at build time scripts/prerender.mjs
 // lifts the same tags into each page's static HTML so crawlers and AI engines get them without JS.

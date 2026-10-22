@@ -1,4 +1,5 @@
 import socialArchive from './socialArchive.json'
+import { assetPath } from '@/lib/urls'
 
 // Gallery manifest. Files live in public/media/ (optimised WebP; each photo has a full-size
 // version and a `-640` version for cards/heroes). Only add media GFP owns or has permission to
@@ -11,8 +12,8 @@ import socialArchive from './socialArchive.json'
 // `-640` files fit inside 640×640, so portrait images are narrower than 640px.
 const photo = (id, width, height, caption, alt, extra = {}) => ({
   id,
-  src: `/media/${id}.webp`,
-  srcSmall: `/media/${id}-640.webp`,
+  src: assetPath(`/media/${id}.webp`),
+  srcSmall: assetPath(`/media/${id}-640.webp`),
   smallWidth: Math.round(width * Math.min(1, 640 / Math.max(width, height))),
   width,
   height,
@@ -23,8 +24,8 @@ const photo = (id, width, height, caption, alt, extra = {}) => ({
 
 const socialPhoto = (id, width, height, caption, alt) => ({
   id: `facebook-${id}`,
-  src: `/media/social/facebook-${id}.webp`,
-  srcSmall: `/media/social/facebook-${id}-640.webp`,
+  src: assetPath(`/media/social/facebook-${id}.webp`),
+  srcSmall: assetPath(`/media/social/facebook-${id}-640.webp`),
   smallWidth: Math.round(width * Math.min(1, 640 / Math.max(width, height))),
   width,
   height,
@@ -81,8 +82,8 @@ export const images = [
   socialPhoto('122315885636206468', 928, 1152, 'Pakistan Defense Day Grappling Fight Night 2026 result card', 'GFP result card listing divisions and medalists for the Pakistan Defense Day Grappling Fight Night 2026.'),
   ...socialArchive.map((reel) => ({
     id: `${reel.id}-still`,
-    src: reel.poster,
-    srcSmall: reel.poster,
+    src: assetPath(reel.poster),
+    srcSmall: assetPath(reel.poster),
     width: reel.width,
     height: reel.height,
     smallWidth: reel.width,
@@ -93,7 +94,7 @@ export const images = [
   })),
   {
     id: 'summer-fights-2026-results',
-    src: '/media/summer-fights-challenge-2026-results.webp',
+    src: assetPath('/media/summer-fights-challenge-2026-results.webp'),
     width: 335,
     height: 597,
     alt: 'Result card for the Summer Fights Challenge 2026 at VCL Gym, Lahore, listing gold and silver medallists across grappling, MMA, boxing and kickboxing weight classes.',
@@ -113,8 +114,8 @@ const LICENSES = {
 }
 const stock = (id, width, height, smallWidth, alt, creator, license, source) => ({
   id,
-  src: `/media/cc/${id}.webp`,
-  srcSmall: `/media/cc/${id}-640.webp`,
+  src: assetPath(`/media/cc/${id}.webp`),
+  srcSmall: assetPath(`/media/cc/${id}-640.webp`),
   width,
   height,
   smallWidth,
@@ -155,8 +156,8 @@ const reelEvents = {
 export const videos = socialArchive.map((reel) => ({
   id: reel.id,
   type: 'file',
-  src: reel.src,
-  poster: reel.poster,
+  src: assetPath(reel.src),
+  poster: assetPath(reel.poster),
   url: reel.sourceUrl,
   title: reel.title,
   meta: `Saved from ${reel.platform === 'facebook' ? 'Facebook' : 'Instagram'} · Open original for context`,

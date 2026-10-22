@@ -3,6 +3,7 @@ import { prerenderToNodeStream } from 'react-dom/static'
 import { createStaticHandler, createStaticRouter, StaticRouterProvider } from 'react-router'
 import { MotionConfig } from 'motion/react'
 import { routes, sitePages } from '@/routes'
+import { assetPath, BASE_PATH } from '@/lib/urls'
 
 export { sitePages }
 
@@ -11,8 +12,8 @@ export { sitePages }
  * Suspense boundary, so the output contains the full page content, headings and JSON-LD.
  */
 export async function render(url) {
-  const handler = createStaticHandler(routes)
-  const context = await handler.query(new Request(`http://localhost${url}`))
+  const handler = createStaticHandler(routes, { basename: BASE_PATH })
+  const context = await handler.query(new Request(`http://localhost${assetPath(url)}`))
   if (context instanceof Response) return { redirect: context.headers.get('Location') }
 
   const router = createStaticRouter(handler.dataRoutes, context)

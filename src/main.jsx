@@ -18,6 +18,9 @@ const app = (
   </StrictMode>
 )
 const root = document.getElementById('root')
+// Static metadata serves crawlers before JS. Let React own it after mounting so
+// navigation cannot leave the previous page's canonical, title or description behind.
+document.querySelectorAll('[data-prerender-head]').forEach((tag) => tag.remove())
 // Every route ships complete static HTML. The browser router then takes over interaction.
 // Its initial tree differs from the static router's data state, so mount it cleanly.
 if (root.hasChildNodes()) root.replaceChildren()

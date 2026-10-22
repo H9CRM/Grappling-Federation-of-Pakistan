@@ -1,7 +1,8 @@
 import { Download, Film, Images } from 'lucide-react'
 import { facebookPageUrl, images, stockImages, videos } from '@/content/media'
 import { PhotoCredit } from '@/components/media/photo-credit'
-import { org, SITE_URL } from '@/content/site'
+import { org } from '@/content/site'
+import { absoluteUrl, assetPath } from '@/lib/urls'
 import { PageHero } from '@/components/layout/page-hero'
 import { Section, SectionHeading } from '@/components/layout/section'
 import { CtaBand } from '@/components/blocks'
@@ -29,7 +30,7 @@ export default function Media() {
           schema: {
             '@type': 'ImageGallery',
             name: 'GFP photo gallery',
-            image: images.map((i) => ({ '@type': 'ImageObject', contentUrl: `${SITE_URL}${i.src}`, caption: i.caption, width: i.width, height: i.height })),
+            image: images.map((i) => ({ '@type': 'ImageObject', contentUrl: absoluteUrl(i.src), caption: i.caption, width: i.width, height: i.height })),
           },
         }}
         actions={
@@ -103,12 +104,12 @@ export default function Media() {
       <Section tone="white" tight>
         <div className="container-site grid items-center gap-10 lg:grid-cols-[auto_1fr]">
           <Reveal type="pop">
-            <img src="/brand/gfp-logo-192.webp" width="144" height="144" alt="Grappling Federation of Pakistan crest" className="size-36 rounded-full shadow-card" loading="lazy" />
+            <img src={assetPath('/brand/gfp-logo-192.webp')} width="144" height="144" alt="Grappling Federation of Pakistan crest" className="size-36 rounded-full shadow-card" loading="lazy" />
           </Reveal>
           <div>
             <SectionHeading eyebrow="Press" title="Media Kit and Press Accreditation" lead="Journalists can download official GFP logos and event photos for editorial use, with credit to the Grappling Federation of Pakistan." />
             <Reveal type="pop" delay={0.15} className="mt-8 flex flex-wrap gap-3">
-              <Button href={org.logo} download="gfp-logo.png" variant="solid" icon={null}>
+              <Button href={assetPath(org.logo)} download="gfp-logo.png" variant="solid" icon={null}>
                 <Download aria-hidden="true" className="size-[1.1em]" /> Download logo (PNG)
               </Button>
               <Button to="/contact" variant="ghost">Request press accreditation</Button>
