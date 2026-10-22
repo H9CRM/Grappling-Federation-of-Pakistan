@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /private/
+Disallow: /test/
+Disallow: /staging/
+Disallow: /drafts/
+
+Sitemap: https://www.gfp.org.pk/sitemap-index.xml
+Sitemap: https://www.gfp.org.pk/sitemap.xml
+Sitemap: https://www.gfp.org.pk/image-sitemap.xml

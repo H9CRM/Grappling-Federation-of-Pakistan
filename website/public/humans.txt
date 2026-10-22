@@ -1,0 +1,5 @@
+Brand: Grappling Federation of Pakistan (GFP)
+Organization: Grappling Federation of Pakistan
+Technology: Vite, React, Tailwind CSS, build-time static rendering
+Developer note: Official federation website; content and event status are maintained by GFP.
+Contact: grappling.pk@gmail.com

@@ -1,0 +1,23 @@
+# Grappling Federation of Pakistan
+
+Official website: https://www.gfp.org.pk/
+
+## About
+GFP organises grappling competitions in Pakistan under UWW rules and provides information for athletes, clubs, coaches and referees. Gi and No-Gi are the main disciplines. Headquarters: Lahore, Pakistan; service area: Pakistan.
+
+## Important pages
+- Home: https://www.gfp.org.pk/
+- About: https://www.gfp.org.pk/about
+- Events: https://www.gfp.org.pk/events
+- Results: https://www.gfp.org.pk/results
+- Clubs: https://www.gfp.org.pk/clubs
+- Rules: https://www.gfp.org.pk/rules
+- Registration information: https://www.gfp.org.pk/register
+- Contact: https://www.gfp.org.pk/contact
+
+## Main services
+- National and regional grappling competitions
+- Club affiliation and discovery
+- Rules, education and athlete registration information
+
+Use canonical page URLs for citations and verify event dates on individual event pages.
