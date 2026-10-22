@@ -10,7 +10,7 @@ Use **Deploy website to GitHub Pages**, included in `.github/workflows/deploy-pa
 2. Open [Settings → Pages](https://github.com/H9CRM/Grappling-Federation-of-Pakistan/settings/pages).
 3. Under **Build and deployment → Source**, select **GitHub Actions**.
 4. Open [Actions](https://github.com/H9CRM/Grappling-Federation-of-Pakistan/actions), select **Deploy website to GitHub Pages**, then **Run workflow → main → Run workflow**. Future pushes to `main` deploy automatically.
-5. Wait for both `build` and `deploy` to succeed. The deployment displays the published URL.
+5. Wait for the `build-and-deploy` job to succeed. Build, verification and deployment share one runner. The deployment displays the published URL.
 
 Expected demo URL (when no custom domain is configured):
 
@@ -18,7 +18,7 @@ Expected demo URL (when no custom domain is configured):
 
 The included workflow handles Vite. You do not need the Publish Node.js Package, Webpack, Jekyll or Static HTML starter templates, or a `gh-pages` branch. Publish the built `dist/` directory.
 
-The workflow uses Node 24, `npm ci`, linting, static generation, build verification and official GitHub Pages actions. Token permissions are configured in the workflow; no personal access token or repository secret is required.
+The workflow uses Node 24, `npm ci`, linting, static generation, build verification and official GitHub Pages actions. Build and deploy use the same runner to avoid a second runner allocation between stages. New runs cancel superseded runs, and the job has a 20-minute timeout. Token permissions are configured in the workflow; no personal access token or repository secret is required.
 
 ### Configure GitHub Pages returns 404 / Not Found
 
@@ -26,7 +26,7 @@ Enable Pages once before running the workflow: open **Settings → Pages → Bui
 
 If the setting is unavailable, a repository admin or maintainer must enable it. Private repositories require a GitHub plan that supports Pages, and organization policies can restrict access. The default workflow token cannot automatically enable a new Pages site; setting `enablement: true` alone will not fix this.
 
-The workflow uses `actions/configure-pages@v6` (Node 24) and pins both jobs to Ubuntu 24.04 to avoid the Node 20 deprecation warning and the `ubuntu-latest` migration notice. These notices were separate from the Pages configuration failure.
+The workflow uses `actions/configure-pages@v6` and `actions/upload-pages-artifact@v5` with Node 24 actions, and pins its runner to Ubuntu 24.04 to avoid the Node 20 deprecation warning and the `ubuntu-latest` migration notice. These notices were separate from the Pages configuration failure.
 
 ## Local development and verification
 
