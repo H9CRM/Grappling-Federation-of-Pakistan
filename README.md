@@ -26,7 +26,7 @@ Enable Pages once before running the workflow: open **Settings → Pages → Bui
 
 If the setting is unavailable, a repository admin or maintainer must enable it. Private repositories require a GitHub plan that supports Pages, and organization policies can restrict access. The default workflow token cannot automatically enable a new Pages site; setting `enablement: true` alone will not fix this.
 
-The workflow uses `actions/configure-pages@v6` and `actions/upload-pages-artifact@v5` with Node 24 actions, and pins its runner to Ubuntu 24.04 to avoid the Node 20 deprecation warning and the `ubuntu-latest` migration notice. These notices were separate from the Pages configuration failure.
+The workflow uses `actions/configure-pages@v6` and `actions/upload-pages-artifact@v5` with Node 24 actions and GitHub's default Ubuntu runner pool. Runner-image migration notices are informational. These notices were separate from the Pages configuration failure.
 
 ## Local development and verification
 
