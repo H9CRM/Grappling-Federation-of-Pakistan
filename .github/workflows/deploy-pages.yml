@@ -14,7 +14,7 @@ concurrency:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       contents: read
       pages: read
@@ -28,7 +28,9 @@ jobs:
           cache: npm
       - name: Configure GitHub Pages
         id: pages
-        uses: actions/configure-pages@v5
+        # First enable Settings > Pages > Source: GitHub Actions.
+        # Automatic enablement requires an additional privileged token.
+        uses: actions/configure-pages@v6
       - name: Install dependencies
         run: npm ci
       - name: Lint
@@ -48,7 +50,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     permissions:
       pages: write
       id-token: write

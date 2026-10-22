@@ -20,6 +20,14 @@ The included workflow handles Vite. You do not need the Publish Node.js Package,
 
 The workflow uses Node 24, `npm ci`, linting, static generation, build verification and official GitHub Pages actions. Token permissions are configured in the workflow; no personal access token or repository secret is required.
 
+### Configure GitHub Pages returns 404 / Not Found
+
+Enable Pages once before running the workflow: open **Settings → Pages → Build and deployment → Source → GitHub Actions**. Skip the suggested starter templates because this repository already includes its workflow. Then open **Actions → Deploy website to GitHub Pages → Run workflow**. If you only changed the Pages setting, you can also re-run the failed job.
+
+If the setting is unavailable, a repository admin or maintainer must enable it. Private repositories require a GitHub plan that supports Pages, and organization policies can restrict access. The default workflow token cannot automatically enable a new Pages site; setting `enablement: true` alone will not fix this.
+
+The workflow uses `actions/configure-pages@v6` (Node 24) and pins both jobs to Ubuntu 24.04 to avoid the Node 20 deprecation warning and the `ubuntu-latest` migration notice. These notices were separate from the Pages configuration failure.
+
 ## Local development and verification
 
 Use Node.js 24 and npm:
